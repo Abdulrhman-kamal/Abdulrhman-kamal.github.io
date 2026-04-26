@@ -3,9 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdelrhman Kamal | Embedded Systems</title>
+    <meta name="description" content="Portfolio of Abdelrhman Kamal - Embedded Systems Engineer & Process Owner">
+    <title>Abdelrhman Kamal | Embedded Systems Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --bg-color: #2a2a2a;
+            --terminal-bg: rgba(35, 35, 35, 0.95);
+            --accent-blue: #58a6ff;
+            --accent-purple: #bc85ff;
+            --text-main: #e0e0e0;
+            --text-dim: #8b949e;
+            --code-green: #6a9955;
+            --skill-bg: rgba(163, 190, 140, 0.1);
+            --skill-border: rgba(163, 190, 140, 0.2);
+            --skill-text: #a3be8c;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color); 
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .desktop {
+            width: 100%;
+            max-width: 1000px;
+            padding: 20px;
+        }
+
+        .glass-terminal {
+            background: var(--terminal-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+        }
+
+        .window-header {
+            background: rgba(20, 20, 20, 0.6);
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .controls { display: flex; gap: 8px; margin-right: 30px; }
+        .dot { height: 12px; width: 12px; border-radius: 50%; }
+        .red { background: #ff5f57; }
+        .yellow { background: #febc2e; }
+        .green { background: #28c840; }
+
+        .tabs { display: flex; overflow-x: auto; scrollbar-width: none; }
+        .tabs::-webkit-scrollbar { display: none; }
+        .tab {
+            padding: 14px 25px;
+            font-size: 13px;
+            color: #666;
+            text-decoration: none;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+        .tab:hover { background: rgba(255, 255, 255, 0.03); color: #fff; }
+        .tab.active { background: var(--bg-color); color: var(--accent-blue); border-bottom: 2px solid var(--accent-blue); }
+
+        .window-content { padding: 50px; }
+        
+        .gradient-text {
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+        }
+
+        .location-tag { color: var(--text-dim); font-size: 0.95rem; margin-top: 8px; }
+        .code-comment { color: var(--code-green); font-style: italic; margin-bottom: 12px; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .skill-item {
+            font-size: 0.85rem;
+            color: var(--skill-text);
+            background: var(--skill-bg);
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--skill-border);
+            text-align: center;
+        }
+
+        .experience-section { margin-top: 50px; }
+        .log-entry { margin-bottom: 25px; border-left: 2px solid #444; padding-left: 20px; }
+        .log-entry .date { color: var(--accent-blue); font-size: 0.85rem; display: block; margin-bottom: 4px; }
+        .log-entry strong { color: #fff; }
+        .log-entry p { color: var(--text-dim); font-size: 0.9rem; margin-top: 6px; line-height: 1.5; }
+
+        .cta-area { display: flex; gap: 15px; margin-top: 40px; flex-wrap: wrap; }
+        .social-btn {
+            text-decoration: none;
+            color: #c9d1d9;
+            border: 1px solid #444;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .social-btn:hover { border-color: var(--accent-blue); color: var(--accent-blue); background: rgba(88, 166, 255, 0.05); }
+        .social-btn.highlight { background: var(--accent-blue); color: #fff; border: none; }
+        .social-btn.highlight:hover { background: #4a9eff; box-shadow: 0 0 15px rgba(88, 166, 255, 0.3); }
+
+        footer { margin-top: 60px; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 20px; }
+        .status-bar { display: flex; gap: 30px; font-size: 12px; color: #555; }
+        .blink { color: var(--accent-blue); animation: pulse 1s infinite; }
+        @keyframes pulse { 50% { opacity: 0; } }
+
+        @media (max-width: 850px) {
+            .grid { grid-template-columns: 1fr; gap: 30px; }
+            .window-content { padding: 30px; }
+            .tabs { display: none; }
+            .gradient-text { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 <body>
     <div class="desktop">
@@ -19,53 +151,73 @@
                 <nav class="tabs">
                     <a href="https://github.com/Abdulrhman-kamal" target="_blank" class="tab active">github.sh</a>
                     <a href="https://www.youtube.com/@AbdelrhmanKamal1" target="_blank" class="tab">vlog.mp4</a>
-                    <a href="https://play.google.com/store/apps/developer?id=Bright-Light" target="_blank" class="tab">bright_light.apk</a>
+                    <a href="https://play.google.com/store/apps/developer?id=Bright-Light" target="_blank" class="tab">play_store.apk</a>
                 </nav>
             </div>
 
             <div class="window-content">
                 <header>
                     <h1 class="gradient-text">Abdelrhman Kamal</h1>
-                    <p class="location-tag">📍 Software Engineer | Embedded C++ | Python</p>
+                    <p class="location-tag">📍 Cairo, Egypt | Embedded SW Engineer @ Valeo</p>
                 </header>
 
                 <div class="grid">
                     <section class="card main-bio">
-                        <h3><span class="bracket">{</span> Summary <span class="bracket">}</span></h3>
-                        <p class="code-comment">// Specializing in low-level systems & firmware architecture.</p>
-                        <p>Focused on <strong>Embedded C++ (17/20)</strong>, <strong>RTOS</strong>, and building bridges between hardware constraints and high-level Android integration.</p>
+                        <h3><span class="bracket">{</span> summary <span class="bracket">}</span></h3>
+                        <p class="code-comment">// Technical leadership & process ownership.</p>
+                        <p>Specializing in <strong>Embedded C/C++</strong> and <strong>AI Agent Architecture</strong>. Currently serving as a process owner and leading an AI Agent development team for large-scale automotive systems.</p>
                     </section>
 
                     <section class="card">
-                        <h3><span class="bracket">{</span> Connect <span class="bracket">}</span></h3>
-                        <div class="social-links">
-                            <a href="https://github.com/Abdulrhman-kamal" target="_blank" class="social-btn">
-                                <span class="key">GIT</span> GitHub/Source
-                            </a>
-                            <a href="https://www.youtube.com/@AbdelrhmanKamal1" target="_blank" class="social-btn">
-                                <span class="key">VID</span> YouTube/Tutorials
-                            </a>
-                            <a href="https://play.google.com/store/apps/developer?id=Bright-Light" target="_blank" class="social-btn">
-                                <span class="key">APP</span> Bright-Light Apps
-                            </a>
+                        <h3><span class="bracket">{</span> tech_stack <span class="bracket">}</span></h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">Unit Construction</div>
+                            <div class="skill-item">Unit Testing</div>
+                            <div class="skill-item">C/C++/Java/Python</div>
+                            <div class="skill-item">PCB Design (Eagle)</div>
+                            <div class="skill-item">CI/CD Automation</div>
+                            <div class="skill-item">Tooling/Automation</div>
                         </div>
                     </section>
                 </div>
 
-                <section class="projects-section">
-                    <h3><span class="bracket">[</span> Featured_Development <span class="bracket">]</span></h3>
-                    <div class="project-list">
-                        <div class="project-entry">
-                            <strong>Automotive Embedded Hub</strong>
-                            <p>C++ firmware for CAN-Bus/I2C communication and custom console integration.</p>
+                <section class="experience-section">
+                    <h3><span class="bracket">[</span> professional_log <span class="bracket">]</span></h3>
+                    <div class="log-list">
+                        <div class="log-entry">
+                            <span class="date">2019 - Present</span>
+                            <strong>Valeo | Embedded SW Engineer & AI Agent PPO</strong>
+                            <p>Process owner and leading an AI Agent development team.</p>
                         </div>
-                        <div class="project-entry">
-                            <strong>Edge AI Research</strong>
-                            <p>Quantizing and deploying local LLMs for on-device hardware inference.</p>
+                        <div class="log-entry">
+                            <span class="date">2014 - 2019</span>
+                            <strong>Independent Android Developer</strong>
+                            <p>Built a diverse portfolio of applications including <em>Franco2</em>, amassing over 1M total downloads.</p>
+                        </div>
+                        <div class="log-entry">
+                            <span class="date">2018 - 2019</span>
+                            <strong>Edge-Technologies | Embedded Systems</strong>
+                            <p>Full-stack hardware/software debugging and PCB design for smart energy-saving solutions.</p>
                         </div>
                     </div>
                 </section>
 
+                <div class="cta-area">
+                    <a href="https://github.com/Abdulrhman-kamal" target="_blank" class="social-btn">Source Code</a>
+                    <a href="https://www.youtube.com/@AbdelrhmanKamal1" target="_blank" class="social-btn">YouTube Channel</a>
+                    <a href="https://play.google.com/store/apps/developer?id=Bright-Light" target="_blank" class="social-btn highlight">Bright-Light Play Store</a>
+                </div>
+
                 <footer>
                     <div class="status-bar">
-                        <span class="status-
+                        <span class="status-item">UTF-8</span>
+                        <span class="status-item">C</span>
+                        <span class="status-item">Rel. 2026.04</span>
+                        <span class="blink">█</span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,3 +1,4 @@
+/* Core Layout */
 body {
     margin: 0;
     padding: 0;
@@ -10,19 +11,19 @@ body {
     min-height: 100vh;
 }
 
-.desktop { width: 100%; max-width: 950px; padding: 20px; }
+.desktop { width: 100%; max-width: 1000px; padding: 20px; }
 
 .glass-terminal {
-    background: rgba(35, 35, 35, 0.9);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(35, 35, 35, 0.95);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
     overflow: hidden;
 }
 
 .window-header {
-    background: rgba(20, 20, 20, 0.5);
+    background: rgba(20, 20, 20, 0.6);
     padding: 0 20px;
     display: flex;
     align-items: center;
@@ -37,60 +38,68 @@ body {
 
 .tabs { display: flex; overflow-x: auto; }
 .tab {
-    padding: 12px 20px;
+    padding: 14px 25px;
     font-size: 13px;
     color: #666;
     text-decoration: none;
     border-right: 1px solid rgba(255, 255, 255, 0.05);
-    white-space: nowrap;
 }
-.tab:hover { background: rgba(255, 255, 255, 0.05); color: #fff; }
-.tab.active { background: #2a2a2a; color: #58a6ff; }
+.tab:hover { background: rgba(255, 255, 255, 0.03); color: #fff; }
+.tab.active { background: #2a2a2a; color: #58a6ff; border-bottom: 2px solid #58a6ff; }
 
-.window-content { padding: 40px; }
+.window-content { padding: 50px; }
 .gradient-text {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     background: linear-gradient(90deg, #58a6ff, #bc85ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 0;
 }
 
-.location-tag { color: #8b949e; font-size: 0.9rem; margin-top: 5px; }
-.code-comment { color: #707070; font-style: italic; margin-bottom: 10px; }
+.location-tag { color: #8b949e; font-size: 0.95rem; margin-top: 8px; }
+.code-comment { color: #6a9955; font-style: italic; margin-bottom: 12px; }
 
 .grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 40px;
-    margin-top: 30px;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    margin-top: 40px;
 }
 
-.social-links { display: flex; flex-direction: column; gap: 12px; }
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.skill-item {
+    font-size: 0.85rem;
+    color: #a3be8c;
+    background: rgba(163, 190, 140, 0.1);
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+.experience-section { margin-top: 50px; }
+.log-entry { margin-bottom: 25px; border-left: 2px solid #444; padding-left: 20px; }
+.log-entry .date { color: #58a6ff; font-size: 0.85rem; display: block; margin-bottom: 4px; }
+.log-entry p { color: #8b949e; font-size: 0.9rem; margin-top: 6px; }
+
+.cta-area { display: flex; gap: 15px; margin-top: 40px; }
 .social-btn {
     text-decoration: none;
     color: #c9d1d9;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 12px 15px;
+    border: 1px solid #444;
+    padding: 12px 24px;
     border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.9rem;
-    transition: 0.2s;
+    transition: 0.3s;
 }
-.social-btn:hover { border-color: #58a6ff; background: rgba(88, 166, 255, 0.1); }
-.key { color: #bc85ff; font-weight: bold; margin-right: 10px; }
+.social-btn:hover { border-color: #58a6ff; color: #58a6ff; }
+.social-btn.highlight { background: #58a6ff; color: #fff; border: none; }
 
-.project-list { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.project-entry { border-left: 2px solid #30363d; padding-left: 15px; }
-
-footer { margin-top: 50px; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 15px; }
-.status-bar { display: flex; gap: 25px; font-size: 11px; color: #555; }
+footer { margin-top: 60px; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 20px; }
+.status-bar { display: flex; gap: 30px; font-size: 12px; color: #555; }
 .blink { color: #58a6ff; animation: pulse 1s infinite; }
 @keyframes pulse { 50% { opacity: 0; } }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
     .grid { grid-template-columns: 1fr; }
-    .project-list { grid-template-columns: 1fr; }
-    .window-content { padding: 20px; }
+    .window-content { padding: 30px; }
     .tabs { display: none; }
 }
